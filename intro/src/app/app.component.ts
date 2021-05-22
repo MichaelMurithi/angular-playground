@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core'
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'pm-root',
+  template:`
+  <div>
+    <h2>{{pageTitle}}</h2>
+    <p>My Amazing first angular component</p>
+  </div>
+  `
 })
+
 export class AppComponent {
-  pageTitle: string = 'Learning Angular'
+  pageTitle: string = 'An amazing app to learn Angular';
 }
