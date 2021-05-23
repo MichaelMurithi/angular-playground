@@ -4,6 +4,7 @@ import { Iproduct } from './product';
 @Component({
   selector: 'pm-products',
   templateUrl: './product-list-component.html',
+  styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent {
   pageTitle: string = 'Product List';
@@ -35,5 +36,8 @@ export class ProductListComponent {
   ];
   toggleImage(): void {
     this.showImage = !this.showImage;
+  }
+  ngOnInit(): void {
+    console.log('In OnInit');
   }
 }
