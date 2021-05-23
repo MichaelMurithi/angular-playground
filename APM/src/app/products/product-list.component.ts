@@ -11,7 +11,17 @@ export class ProductListComponent {
   imageWidth: number = 50;
   imageMargin: number = 2;
   showImage: boolean = false;
-  listFilter: string = '...';
+  filteredProducts: Iproduct[] = [];
+
+  private _listFilter: string = '';
+  public get listFilter(): string {
+    return this._listFilter;
+  }
+  public set listFilter(value: string) {
+    this._listFilter = value;
+    this.filteredProducts = this.performFilter(this.listFilter);
+  }
+
   products: Iproduct[] = [
     {
       productId: 1,
@@ -34,10 +44,18 @@ export class ProductListComponent {
       imageUrl: 'assets/images/hammer.png',
     },
   ];
+
+  performFilter(filterBy: string): Iproduct[] {
+    filterBy = filterBy.toLowerCase();
+    return this.products.filter((product) =>
+      product.productName.toLowerCase().includes(filterBy)
+    );
+  }
+
   toggleImage(): void {
     this.showImage = !this.showImage;
   }
   ngOnInit(): void {
-    console.log('In OnInit');
+    this.listFilter = 'Cart';
   }
 }
