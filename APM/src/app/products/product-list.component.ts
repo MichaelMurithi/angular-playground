@@ -56,6 +56,6 @@ export class ProductListComponent {
     this.showImage = !this.showImage;
   }
   ngOnInit(): void {
-    this.listFilter = 'Cart';
+    this.listFilter = '';
   }
 }
