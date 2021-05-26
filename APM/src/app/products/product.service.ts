@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { IProduct } from './product';
 
-@Injectable() //Injectable decorator is used to make a service.
+@Injectable({
+  providedIn: 'root',
+}) //Injectable decorator is used to make a service.
 export class ProductService {
   getProducts(): IProduct[] {
     return [
