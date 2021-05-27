@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-// import { Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { IProduct } from './product';
 import { ProductService } from './product.service';
 
@@ -17,7 +17,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   filteredProducts: IProduct[] = [];
   products: IProduct[] = [];
   errorMessage: string = '';
-  // sub: Subscription | undefined;
+  sub!: Subscription | undefined;
 
   private _listFilter: string = '';
   public get listFilter(): string {
@@ -56,7 +56,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.pageTitle = `Product List: ` + message;
   }
 
-  // ngOnDestroy(): void {
-  //   this.sub.unsubscribe();
-  // }
+  ngOnDestroy() {
+    this.sub?.unsubscribe();
+  }
 }
