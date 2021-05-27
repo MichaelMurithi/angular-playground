@@ -25,6 +25,7 @@ export class ProductListComponent {
   }
 
   products: IProduct[] = [];
+  errorMessage: string = '';
 
   constructor(private productService: ProductService) {}
 
@@ -38,11 +39,14 @@ export class ProductListComponent {
   toggleImage(): void {
     this.showImage = !this.showImage;
   }
+
   ngOnInit(): void {
-    this.products = this.productService.getProducts();
-    this.filteredProducts = this.products;
-    this.listFilter = '';
+    this.productService.getProducts().subscribe({
+      next: (products) => (this.products = products),
+      error: (err) => (this.errorMessage = err),
+    });
   }
+
   onRatingClicked(message: string): void {
     this.pageTitle = `Product List: ` + message;
   }

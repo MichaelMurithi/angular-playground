@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { IProduct } from './product';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { tap, catchError } from 'rxjs/operators/';
 /**
  * To add an observable to our service, we use the HttpClient to fetch data
  * We import Observable from 'rxjs' library
@@ -20,6 +20,12 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
   getProducts(): Observable<IProduct[]> {
-    return this.http.get<IProduct[]>(this.productUrl);
+    return this.http
+      .get<IProduct[]>(this.productUrl)
+      .pipe(tap((data) => console.log('All: ', JSON.stringify(data))));
+  }
+
+  private handleError(err: HttpErrorResponse) {
+    console.log(err);
   }
 }
