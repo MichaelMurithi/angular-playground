@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+// import { Subscription } from 'rxjs';
 import { IProduct } from './product';
 import { ProductService } from './product.service';
 
@@ -8,12 +9,15 @@ import { ProductService } from './product.service';
   providers: [ProductService],
   styleUrls: ['./product-list.component.css'],
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit, OnDestroy {
   pageTitle: string = 'Product List';
   imageWidth: number = 50;
   imageMargin: number = 2;
   showImage: boolean = false;
   filteredProducts: IProduct[] = [];
+  products: IProduct[] = [];
+  errorMessage: string = '';
+  // sub: Subscription | undefined;
 
   private _listFilter: string = '';
   public get listFilter(): string {
@@ -23,9 +27,6 @@ export class ProductListComponent {
     this._listFilter = value;
     this.filteredProducts = this.performFilter(this.listFilter);
   }
-
-  products: IProduct[] = [];
-  errorMessage: string = '';
 
   constructor(private productService: ProductService) {}
 
@@ -41,8 +42,12 @@ export class ProductListComponent {
   }
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe({
-      next: (products) => (this.products = products),
+    //Assigning the observable in a variable enables us to destroy it after completing the operations
+    this.sub = this.productService.getProducts().subscribe({
+      next: (products) => {
+        this.products = products;
+        this.filteredProducts = this.products;
+      },
       error: (err) => (this.errorMessage = err),
     });
   }
@@ -50,4 +55,8 @@ export class ProductListComponent {
   onRatingClicked(message: string): void {
     this.pageTitle = `Product List: ` + message;
   }
+
+  // ngOnDestroy(): void {
+  //   this.sub.unsubscribe();
+  // }
 }
