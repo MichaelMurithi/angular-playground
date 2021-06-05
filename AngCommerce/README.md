@@ -1,27 +1,16 @@
 # AngCommerce
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1.
+This is an implementation of this practice requirements exercises:
 
-## Development server
+For the first exercise, try to accomplish the following:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Start a new project to build an ecommerce website.
+2. Create a component to display a single product.
+3. The product component should display a name, price, and image for the product.
+   You can initialize the component with some defaults for the same. Use any placeholder
+   image you want.
+4. Highlight the entire element in a different color if the product is on sale. Whether
+   the product is on sale can be an attribute of the product itself.
+5. Add buttons to increase and decrease the quantity of the product in the cart. The
+   quantity in the cart should be visible in the UI. Disable the button if the quantity
+   is already zero.

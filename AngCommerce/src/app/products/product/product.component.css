@@ -1,0 +1,24 @@
+.product-container {
+  width: 80%;
+  margin: auto;
+  border: 1px solid black;
+  padding: 10px;
+  display: block;
+}
+
+.product-container h3 {
+  display: block;
+}
+
+.product-container img {
+  width: 50px;
+  height: 100px;
+}
+
+.available {
+  color: green;
+}
+
+.unavailable {
+  color: red;
+}

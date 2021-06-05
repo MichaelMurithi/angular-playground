@@ -1,0 +1,10 @@
+<div class="product-container">
+    <img [src]="product.image" [alt]="product.name">
+    <h3>Product Name: {{product.name}}</h3>
+    <h3 [class]="product.isOnSale ? 'available': 'unavailable'">Produt Price: {{product.price}}</h3>
+    <p>
+        <button (click) = "product.decreaseQuantity()" [disabled] = "product.quantity <=0">-</button>
+        {{product.quantity}}
+        <button (click) = "product.increaseQuantity()">+</button>
+    </p>
+</div>
