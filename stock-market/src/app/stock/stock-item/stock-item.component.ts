@@ -1,30 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Stock } from '../../model/stock';
 @Component({
   selector: 'app-stock-item',
   templateUrl: './stock-item.component.html',
   styleUrls: ['./stock-item.component.css'],
 })
 export class StockItemComponent implements OnInit {
-  public name!: string;
-  public code!: string;
-  public price!: number;
-  public previousPrice!: number;
-  public positiveChange!: boolean;
-  public isFavorite!: boolean;
+  public stock!: Stock;
 
   constructor() {}
 
-  toggleFavorite() {
-    this.isFavorite = !this.isFavorite;
+  //Toggle favorite method
+  toggleFavorite(event: any) {
+    console.log(`The state of favorite stock was changed by ${event}`);
+    this.stock.isFavorite = !this.stock.isFavorite;
   }
 
   ngOnInit(): void {
-    this.name = 'Amazing stock compoany';
-    this.code = 'TSC101';
-    this.price = 85;
-    this.previousPrice = 80;
-    this.positiveChange = this.price > this.previousPrice;
-    this.isFavorite = false;
+    this.stock = new Stock('Amazing stock', 'AMS', 1000, 900);
   }
 }

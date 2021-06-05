@@ -1,9 +1,9 @@
 <div class="stock-container">
     <div class="name">
-        <h3>{{name}}</h3>
+        <h3>{{stock.name}}</h3>
         -
-        <h4>{{code}}</h4>
+        <h4>{{stock.code}}</h4>
     </div>
-    <button (click) = "toggleFavorite()"> {{ isFavorite ? " Remove from" : "Add to "}} Favorite</button>
-    <div [class]="positiveChange ? 'positive' : 'negative' ">{{price}}</div>
+    <button (click) = "toggleFavorite($event)"> {{ stock.isFavorite ? " Remove from" : "Add to "}} Favorite</button>
+    <div [class]="stock.isPositiveChange ? 'positive' : 'negative' ">{{stock.price}}</div>
 </div>
