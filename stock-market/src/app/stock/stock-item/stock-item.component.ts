@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./stock-item.component.css'],
 })
 export class StockItemComponent implements OnInit {
+  public name!: string;
+  public code!: string;
+  public price!: number;
+  public previousPrice!: number;
+
   constructor() {}
 
   ngOnInit(): void {
-    console.log('Hello, stock market component loaded');
-    window.alert('Stock Item component works');
+    this.name = 'Amazing stock compoany';
+    this.code = 'TSC101';
+    this.price = 85;
+    this.previousPrice = 80;
   }
 }

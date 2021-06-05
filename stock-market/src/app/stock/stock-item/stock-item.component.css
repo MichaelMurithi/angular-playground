@@ -1,0 +1,11 @@
+.stock-container {
+  display: inline-block;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.stock-container .name h3,
+.stock-container .name h4 {
+  display: inline-block;
+}
