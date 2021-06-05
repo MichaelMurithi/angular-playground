@@ -9,3 +9,10 @@
 .stock-container .name h4 {
   display: inline-block;
 }
+
+.positive {
+  color: green;
+}
+.negative {
+  color: red;
+}

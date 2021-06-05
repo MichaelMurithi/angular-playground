@@ -4,5 +4,5 @@
         -
         <h4>{{code}}</h4>
     </div>
-    <div class="price">{{price}}</div>
+    <div [class]="positiveChange ? 'positive' : 'negative' ">{{price}}</div>
 </div>

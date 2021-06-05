@@ -10,6 +10,7 @@ export class StockItemComponent implements OnInit {
   public code!: string;
   public price!: number;
   public previousPrice!: number;
+  public positiveChange!: boolean;
 
   constructor() {}
 
@@ -18,5 +19,6 @@ export class StockItemComponent implements OnInit {
     this.code = 'TSC101';
     this.price = 85;
     this.previousPrice = 80;
+    this.positiveChange = this.price > this.previousPrice;
   }
 }
