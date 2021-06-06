@@ -21,3 +21,17 @@ a user action to the component.
 - To generate a model skeleton class using angular we use:
 
 `ng generate class <<folder/file-name>>`
+
+## Directives
+
+### Structural directives
+
+Structural directives in Angular follow a very particular syntax, which makes it easy
+to recognize when a directive is a structural directive versus a normal one.
+
+All strutural
+directives in Angular start with an asterisk (\*), like:
+
+`*ngIf` - Used for conditionally showing/hiding elements
+
+`*ngFor` -
