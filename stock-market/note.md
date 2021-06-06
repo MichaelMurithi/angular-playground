@@ -32,7 +32,21 @@ to recognize when a directive is a structural directive versus a normal one.
 All strutural
 directives in Angular start with an asterisk (\*), like:
 
-`*ngIf` - Used for conditionally showing/hiding elements
+- `*ngIf` - Used for conditionally showing/hiding elements
 
-`*ngFor` - directive is used for creating multiple elements, usually one for each instance of
-some or the other object in an array
+- `*ngFor` - directive is used for creating multiple elements, usually one for each instance of
+  some or the other object in an array
+
+Instance variables avaiable with the \*ngFor directive:
+
+- `index` - specifies the index of the current item.
+- `even` - this is true when the item has an even index
+- `odd` - true when the item has an odd index
+- `first` - true when the item is the first item in the array
+- `last` - true when the item is the last item in the array
+
+* `trackBy` - used when we are going to reload the list (for example, loading it from an
+  observable that makes a server call). It helps in
+  performance:
+
+- It takes a `trackByFunction` which should return the value by which to track items in the list

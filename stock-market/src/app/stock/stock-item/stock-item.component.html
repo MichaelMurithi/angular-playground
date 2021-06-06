@@ -1,4 +1,4 @@
-<div class="stock-container" *ngFor="let stock of stocks; index as i">
+<div class="stock-container" *ngFor="let stock of stocks; index as i; trackBy: trackStockByCode">
     <div class="name">
         <h3>{{stock.name}}</h3>
         -
@@ -11,3 +11,4 @@
 <!-- 'ngStyle' adds a style for the component based on the properties of the stock-->
     <div [class] = "stock.isPositiveChange ? 'positive' : 'negative'">{{stock.price}}</div>
 </div>
+

@@ -25,4 +25,8 @@ export class StockItemComponent implements OnInit {
       new Stock('Great stock', 'AGS', 1200, 600),
     ];
   }
+
+  trackStockByCode(index: number, stock: Stock): string {
+    return stock.code;
+  }
 }
