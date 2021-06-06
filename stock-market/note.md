@@ -50,3 +50,8 @@ Instance variables avaiable with the \*ngFor directive:
   performance:
 
 - It takes a `trackByFunction` which should return the value by which to track items in the list
+
+* `ngSwitch` - it is an attribute directive
+  It contains:
+
+- `ngSwitchCase` and `ngSwitchDefault` structural directives which add or remove elements based on the case
