@@ -8,6 +8,7 @@ import { Stock } from '../../model/stock';
 export class StockItemComponent implements OnInit {
   public stock!: Stock;
   public stockClasses: any;
+  public stockStyles: any;
 
   constructor() {}
 
@@ -19,15 +20,19 @@ export class StockItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.stock = new Stock('Amazing stock', 'AMS', 1000, 900);
-    let diff = this.stock.previousPrice - this.stock.price - 1;
-    let isLargeChange = Math.abs(diff) > 0.01;
+
     //Stock classes will be aplied on the template based on the properties of the stock changes
     this.stockClasses = {
       positive: this.stock.isPositiveChange,
       negative: !this.stock.isPositiveChange,
-      'small-change': !isLargeChange,
-      'large-change': isLargeChange,
+      'small-change': !this.stock.isLargeChange,
+      'large-change': this.stock.isLargeChange,
     };
+    this.stockStyles = {
+      color: this.stock.isPositiveChange() ? 'green' : 'red',
+      'font-size': this.stock.isLargeChange() ? '1.2em' : '0.8em',
+    };
+
     console.log('The stock classes are: ', this.stockClasses);
   }
 }
