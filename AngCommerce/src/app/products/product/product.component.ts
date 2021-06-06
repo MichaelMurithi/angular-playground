@@ -8,6 +8,8 @@ import { Product } from '../../model/product';
 })
 export class ProductComponent implements OnInit {
   public product!: Product;
+  public saleClasses: any;
+  public quantities!: Array<string>;
 
   ngOnInit(): void {
     this.product = new Product(
@@ -16,5 +18,11 @@ export class ProductComponent implements OnInit {
       '../../../assets/product-image.png',
       12
     );
+    this.saleClasses = {
+      available: this.product.isOnSale,
+      unavailable: !this.product.isOnSale,
+    };
+    this.quantities = this.product.generateQuantityRange();
+    console.log(this.quantities);
   }
 }
