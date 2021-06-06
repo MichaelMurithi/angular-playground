@@ -1,10 +1,10 @@
-# Learning Angular Concepts
+# Learning and Practicing Angular Concepts
 
-## **Summary concepts**
+## **Introduction**
 
 This repo contains projects I build while learning various concepts in angular.
 
-- Each commit description marks a section where I learnt a concept and the scope describing the application where it is implemented e.g `learn(stockApp): Implemented dependency injection`
+- Each commit description marks a section where I learnt a concept and the scope describing the application/folder where it is implemented e.g `learn(stockApp): Implemented dependency injection`
 
 - Each folder contains a project I build at a given stage of my learning process.
 
