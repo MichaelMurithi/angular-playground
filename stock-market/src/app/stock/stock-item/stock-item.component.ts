@@ -6,33 +6,23 @@ import { Stock } from '../../model/stock';
   styleUrls: ['./stock-item.component.css'],
 })
 export class StockItemComponent implements OnInit {
-  public stock!: Stock;
+  public stocks!: Array<Stock>;
   public stockClasses: any;
   public stockStyles: any;
 
   constructor() {}
 
   //Toggle favorite method
-  toggleFavorite(event: any) {
+  toggleFavorite(event: any, index: number) {
     console.log(`The state of favorite stock was changed by ${event}`);
-    this.stock.isFavorite = !this.stock.isFavorite;
+    this.stocks[index].isFavorite = !this.stocks[index].isFavorite;
   }
 
   ngOnInit(): void {
-    this.stock = new Stock('Amazing stock', 'AMS', 1000, 900);
-
-    //Stock classes will be aplied on the template based on the properties of the stock changes
-    this.stockClasses = {
-      positive: this.stock.isPositiveChange,
-      negative: !this.stock.isPositiveChange,
-      'small-change': !this.stock.isLargeChange,
-      'large-change': this.stock.isLargeChange,
-    };
-    this.stockStyles = {
-      color: this.stock.isPositiveChange() ? 'green' : 'red',
-      'font-size': this.stock.isLargeChange() ? '1.2em' : '0.8em',
-    };
-
-    console.log('The stock classes are: ', this.stockClasses);
+    this.stocks = [
+      new Stock('Amazing stock', 'AMS', 1000, 900),
+      new Stock('Another amazing stock', 'AAs', 900, 1000),
+      new Stock('Great stock', 'AGS', 1200, 600),
+    ];
   }
 }

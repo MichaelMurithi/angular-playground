@@ -1,13 +1,13 @@
-<div class="stock-container">
+<div class="stock-container" *ngFor="let stock of stocks; index as i">
     <div class="name">
         <h3>{{stock.name}}</h3>
         -
         <h4>{{stock.code}}</h4>
     </div>
     <button 
-    (click) = "toggleFavorite($event)"
+    (click) = "toggleFavorite($event,i)"
     *ngIf = "!stock.isFavorite"
     > {{ stock.isFavorite ? " Remove from" : "Add to "}} Favorite</button>
 <!-- 'ngStyle' adds a style for the component based on the properties of the stock-->
-    <div [ngStyle]="this.stockStyles">{{stock.price}}</div>
+    <div [class] = "stock.isPositiveChange ? 'positive' : 'negative'">{{stock.price}}</div>
 </div>

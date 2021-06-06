@@ -34,4 +34,5 @@ directives in Angular start with an asterisk (\*), like:
 
 `*ngIf` - Used for conditionally showing/hiding elements
 
-`*ngFor` -
+`*ngFor` - directive is used for creating multiple elements, usually one for each instance of
+some or the other object in an array
