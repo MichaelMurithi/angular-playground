@@ -5,5 +5,5 @@
         <h4>{{stock.code}}</h4>
     </div>
     <button (click) = "toggleFavorite($event)"> {{ stock.isFavorite ? " Remove from" : "Add to "}} Favorite</button>
-    <div [class]="stock.isPositiveChange ? 'positive' : 'negative' ">{{stock.price}}</div>
+    <div [ngClass]="this.stockClasses">{{stock.price}}</div>
 </div>

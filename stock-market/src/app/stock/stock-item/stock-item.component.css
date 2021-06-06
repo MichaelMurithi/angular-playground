@@ -16,3 +16,9 @@
 .negative {
   color: red;
 }
+.small-change {
+  font-size: 0.8em;
+}
+.large-change {
+  font: size 1.2em;
+}
