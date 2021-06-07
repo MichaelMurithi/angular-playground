@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Stock } from '../../model/stock';
 @Component({
   selector: 'app-stock-item',
@@ -6,7 +6,8 @@ import { Stock } from '../../model/stock';
   styleUrls: ['./stock-item.component.css'],
 })
 export class StockItemComponent implements OnInit {
-  public stocks!: Array<Stock>;
+  @Input() public stocks!: Array<Stock>;
+
   public stockClasses: any;
   public stockStyles: any;
 

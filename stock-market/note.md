@@ -55,3 +55,73 @@ Instance variables avaiable with the \*ngFor directive:
   It contains:
 
 - `ngSwitchCase` and `ngSwitchDefault` structural directives which add or remove elements based on the case
+
+## Components
+
+More on components:
+
+### Selectors:
+
+The selectors can be defined in various ways depeding on their use including:
+
+- `selector: app-stock.html` - In this case the selector is used as `<app-stock-html></app-stock-html>`
+
+- `.app-stock-html` - Would result in the selector being used as a css class like:
+
+  `<div class="app-stock-html">`
+
+- `[app-stock-html]` - would result in a selector being used as an attribute on a resulting item.
+
+### Style Encapsulation
+
+- `ViewEncapsulation.Emulated` - Angular creates shimmed CSS to emulate the behavior that shadow DOMs and shadow roots provide.
+- `ViewEncapsulation.Native` - Angular will use shadow roots. This will only work on browsers and platforms that natively support it.
+
+- `ViewEncapsulation.None` - Uses global CSS, without any encapsulation.
+
+e.g `encapsulation: ViewEncapsulation.None` - allows the declared attributes in style to be shared through out the module
+
+### Stripping white spaces
+
+- Stripping white spaces helps reduce the bundle size by compressing the HTMl
+- Set by using `preserveWhiteSpace:true/false` attribute on the component
+
+### Animation
+
+- Angular provides multiple triggers to control and animate each part of the component and its lifecycle
+
+### interpolation
+
+- Used to overide the default interpolation markers in angular
+- By providing an array of 2 strings e.g:
+  `interpolation: ["<<", ">>"]` to replace the interpolation symbols for that component
+
+### View providers
+
+- Allow you to define providers that inject classes/services into a
+  component or any of its children
+
+### changeDetection
+
+- Enables us to control how and when angular updates the UI
+  e.g We can overide the values from `ChangeDetectionStrategy.Default` to `ChangeDetectionStrategy.OnPush`
+  i.e after the first render it will be up to us to let angular know when the value changes
+
+### declarations
+
+- It ensures that components and modules are available for use within the scope of the module
+
+### imports
+
+- Allows you to specify attributes that you want imported and accessible through your module
+
+### exports
+
+- Relevant when you have multiple modules or you need to create a module that will be used by other developers
+
+## Decorators
+
+### Input
+
+Automatically allows you
+to pass in values to the component for that particular input via Angular’s data binding syntax.
