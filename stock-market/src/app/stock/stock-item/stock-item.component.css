@@ -23,3 +23,6 @@
 .large-change {
   font: size 1.2em;
 }
+.stock-container button {
+  display: block;
+}

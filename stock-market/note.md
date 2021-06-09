@@ -125,3 +125,37 @@ e.g `encapsulation: ViewEncapsulation.None` - allows the declared attributes in 
 
 Automatically allows you
 to pass in values to the component for that particular input via Angular’s data binding syntax.
+
+### Change Detection Strategy:
+
+Defines how the components respond to a change in the parect/child component
+
+example: `changeDetection: ChangeDetectionStrategy.OnPush`
+
+### Component Lifecycle
+
+The methods are called in the following order:
+
+- **constructor**()
+- **ngOnChanges**()
+- **ngOnInit**()
+- **ngDoCheck**()
+
+  **ngAfterContentInit**()
+  **ngAfterContentChecked()**
+  **ngAfterViewInit()**
+  **ngAfterViewChecked()**
+
+- **ngOnDestroy**
+
+The various interfaces must be implemented alongside with the lifecycle hooks
+
+### ViewChildren
+
+It is any child component whose tags/selectors appear within the template of the component
+
+### ContentChildren
+
+Any child component that gets projected into the view of the
+ContentChildren
+component, but is not directly included in the template within the component

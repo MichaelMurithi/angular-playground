@@ -9,6 +9,7 @@
     *ngIf = "!stock.isFavorite"
     > {{ stock.isFavorite ? " Remove from" : "Add to "}} Favorite</button>
 <!-- 'ngStyle' adds a style for the component based on the properties of the stock-->
-    <div [class] = "stock.isPositiveChange ? 'positive' : 'negative'">{{stock.price}}</div>
+<button (click) = "changeStockPrice($event,i)">Change Price</button>    
+<div [class] = "stock.isPositiveChange ? 'positive' : 'negative'">{{stock.price}}</div>
 </div>
 
