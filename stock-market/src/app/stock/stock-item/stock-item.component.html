@@ -5,7 +5,7 @@
         <h4>{{stock.code}}</h4>
     </div>
     <button 
-    (click) = "toggleFavorite($event,i)"
+    (click) = "onToggleFavorite()"
     *ngIf = "!stock.isFavorite"
     > {{ stock.isFavorite ? " Remove from" : "Add to "}} Favorite</button>
 <!-- 'ngStyle' adds a style for the component based on the properties of the stock-->
