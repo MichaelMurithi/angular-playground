@@ -159,3 +159,8 @@ It is any child component whose tags/selectors appear within the template of the
 Any child component that gets projected into the view of the
 ContentChildren
 component, but is not directly included in the template within the component
+
+### Component Projection
+
+Projection is useful when we want to build components but set some parts of the UI
+of the component to not be an innate part of it.

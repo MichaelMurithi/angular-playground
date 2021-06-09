@@ -1,4 +1,9 @@
 <div class="main-row">
     <h2>{{title}}</h2>
-    <app-stock-item [stocks]="stocksList"></app-stock-item>
+    <app-stock-item [stocks]="stocksList">
+        <button (click) = "testMethod()">With Button 1</button>
+    </app-stock-item>
+    <app-stock-item [stocks]="stocksList">
+       No buttons for you
+    </app-stock-item>
 </div>

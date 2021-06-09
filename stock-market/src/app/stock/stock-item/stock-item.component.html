@@ -4,12 +4,7 @@
         -
         <h4>{{stock.code}}</h4>
     </div>
-    <button 
-    (click) = "onToggleFavorite()"
-    *ngIf = "!stock.isFavorite"
-    > {{ stock.isFavorite ? " Remove from" : "Add to "}} Favorite</button>
-<!-- 'ngStyle' adds a style for the component based on the properties of the stock-->
-<button (click) = "changeStockPrice($event,i)">Change Price</button>    
+<ng-content></ng-content>
 <div [class] = "stock.isPositiveChange ? 'positive' : 'negative'">{{stock.price}}</div>
 </div>
 

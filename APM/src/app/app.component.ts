@@ -11,5 +11,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  testMethod() {
+    console.log('Test method in AppComponent triggered');
+  }
   pageTitle = 'Mwigo: Product management system';
 }

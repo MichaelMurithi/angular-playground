@@ -1,15 +1,4 @@
-import {
-  Component,
-  SimpleChanges,
-  OnInit,
-  OnChanges,
-  OnDestroy,
-  DoCheck,
-  AfterViewChecked,
-  AfterViewInit,
-  AfterContentChecked,
-  AfterContentInit,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Stock } from './model/stock';
 
 @Component({
@@ -17,16 +6,7 @@ import { Stock } from './model/stock';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent
-  implements
-    OnInit,
-    OnChanges,
-    DoCheck,
-    AfterContentChecked,
-    AfterContentInit,
-    AfterViewChecked,
-    AfterViewInit
-{
+export class AppComponent implements OnInit {
   title = 'Welcome to stock market management system';
 
   public stocksList!: Array<Stock>;
@@ -39,25 +19,7 @@ export class AppComponent
     ];
     console.log('App Component - On init');
   }
-  ngAfterViewInit(): void {
-    console.log('App Component -- After View Init');
-  }
-  ngAfterViewChecked(): void {
-    console.log('App Component -- After view checked');
-  }
-  ngAfterContentInit(): void {
-    console.log('App component --After content init');
-  }
-  ngAfterContentChecked(): void {
-    console.log('App component --After Content checked');
-  }
-  ngOnDestroy(): void {
-    console.log('App Component --On Destroy');
-  }
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('App component -- On Changes - ', changes);
-  }
-  ngDoCheck(): void {
-    console.log('App component - Do Check');
+  testMethod() {
+    console.log('Test method in appComponent triggered');
   }
 }
