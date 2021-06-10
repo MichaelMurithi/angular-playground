@@ -154,7 +154,7 @@ The various interfaces must be implemented alongside with the lifecycle hooks
 
 It is any child component whose tags/selectors appear within the template of the component
 
-### ContentChildren
+### **ContentChildren**
 
 Any child component that gets projected into the view of the
 ContentChildren
@@ -164,3 +164,48 @@ component, but is not directly included in the template within the component
 
 Projection is useful when we want to build components but set some parts of the UI
 of the component to not be an innate part of it.
+
+## Testing
+
+There are different frameworks that can be used for testing in angular:
+
+### Jasmine
+
+- Oriented towards writing specifications rather than traditional unit tests
+- Can be used to write specs for any code, not just angular
+
+### Karma
+
+- The test running framework
+
+### Protractor
+
+Protractor supports the
+capability of running the real angular application and simulating actions and verifying
+behavior, thus completing the circle of testing.
+
+## Testing
+
+### Karma Config
+
+- Serves as the configuartion files for how karma should find and execute files
+
+Identifies:
+
+- The various plug-ins needed for Karma to run
+
+- The file it needs to watch /execute
+- Coverage reporting (coverageIstanbulReporter)
+- Port it needs to run on (port)
+- The browser to run it on (browssers)
+- Whether it dhould re-run everytime the file changes (autoWatch)
+- The level of logs it needs to capture
+
+### test.ts
+
+- Responsible for loading all our components, related specs and the testing framework and utilities needed to run them
+
+#### Isolated Unit Test
+
+- It is a vanilla Js unit test
+- Just instantiates classes and methods and executes them

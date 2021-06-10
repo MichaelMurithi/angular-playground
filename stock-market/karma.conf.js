@@ -3,15 +3,17 @@
 
 module.exports = function (config) {
   config.set({
-    basePath: '',
-    frameworks: ['jasmine', '@angular-devkit/build-angular'],
+    basePath: "",
+    frameworks: ["jasmine", "@angular-devkit/build-angular"],
+    //Identifies the various plug-ins it needs to run
     plugins: [
-      require('karma-jasmine'),
-      require('karma-chrome-launcher'),
-      require('karma-jasmine-html-reporter'),
-      require('karma-coverage'),
-      require('@angular-devkit/build-angular/plugins/karma')
+      require("karma-jasmine"),
+      require("karma-chrome-launcher"),
+      require("karma-jasmine-html-reporter"),
+      require("karma-coverage"),
+      require("@angular-devkit/build-angular/plugins/karma"),
     ],
+    //
     client: {
       jasmine: {
         // you can add configuration options for Jasmine here
@@ -19,26 +21,24 @@ module.exports = function (config) {
         // for example, you can disable the random execution with `random: false`
         // or set a specific seed with `seed: 4321`
       },
-      clearContext: false // leave Jasmine Spec Runner output visible in browser
+      clearContext: false, // leave Jasmine Spec Runner output visible in browser
     },
     jasmineHtmlReporter: {
-      suppressAll: true // removes the duplicated traces
+      suppressAll: true, // removes the duplicated traces
     },
+    //Coverage reporting
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/stock-market'),
-      subdir: '.',
-      reporters: [
-        { type: 'html' },
-        { type: 'text-summary' }
-      ]
+      dir: require("path").join(__dirname, "./coverage/stock-market"),
+      subdir: ".",
+      reporters: [{ type: "html" }, { type: "text-summary" }],
     },
-    reporters: ['progress', 'kjhtml'],
-    port: 9876,
+    reporters: ["progress", "kjhtml"],
+    port: 9876, // The port it needs to run on
     colors: true,
-    logLevel: config.LOG_INFO,
-    autoWatch: true,
-    browsers: ['Chrome'],
+    logLevel: config.LOG_INFO, //The level of logs it needs to capture
+    autoWatch: true, //Whether it should rerun everytime the file channges
+    browsers: ["Chrome"], //The browsers it needs to run on
     singleRun: false,
-    restartOnFileChange: true
+    restartOnFileChange: true,
   });
 };
