@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../../model/product';
 
 @Component({
@@ -6,18 +6,14 @@ import { Product } from '../../model/product';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css'],
 })
+
 export class ProductComponent implements OnInit {
-  public product!: Product;
+  @Input() public product!: Product;
+
   public saleClasses: any;
   public quantities!: Array<string>;
 
   ngOnInit(): void {
-    this.product = new Product(
-      'Nice product',
-      1000,
-      '../../../assets/product-image.png',
-      12
-    );
     this.saleClasses = {
       available: this.product.isOnSale,
       unavailable: !this.product.isOnSale,
