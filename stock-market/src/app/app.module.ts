@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StockItemComponent } from './stock/stock-item/stock-item.component';
+import { CreateStockComponent } from './stock/create-stock/create-stock.component';
 
 /**
 NgModule - an annotation used to label a class as an angular module
@@ -12,8 +14,8 @@ NgModule - an annotation used to label a class as an angular module
  * bootstrap - The component that acts as an entry point to your application
  */
 @NgModule({
-  declarations: [AppComponent, StockItemComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [AppComponent, StockItemComponent, CreateStockComponent],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
