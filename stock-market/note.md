@@ -209,3 +209,10 @@ Identifies:
 
 - It is a vanilla Js unit test
 - Just instantiates classes and methods and executes them
+
+## Forms
+
+- For two-way data binding, **banana-in-a-Box syntax** `[(ngModel)]` is used.
+
+- Expanded ngModel Variant:
+  Involves using `[ngModel]` and `(ngModelChange)`

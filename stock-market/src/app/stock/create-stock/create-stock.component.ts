@@ -7,14 +7,25 @@ import { Stock } from '../../model/stock';
 })
 export class CreateStockComponent implements OnInit {
   public stock!: Stock;
+  public confirmed: boolean = false;
+
   public title: string = 'Create Stock Form';
 
   constructor() {
-    this.stock = new Stock('test', '', 0, 0);
+    this.stock = new Stock('test', '', 0, 0, 'NASDAQ');
   }
+
   ngOnInit(): void {}
 
   getValue(event: Event) {
     return (event.target as HTMLInputElement).value;
+  }
+
+  setStockPrice(price: number) {
+    this.stock.price = price;
+    this.stock.previousPrice = price;
+  }
+  createStock() {
+    console.log('Creating stock ', this.stock);
   }
 }

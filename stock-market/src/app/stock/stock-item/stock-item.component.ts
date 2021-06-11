@@ -29,9 +29,9 @@ export class StockItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.stocks = [
-      new Stock('Amazing stock ', 'AMS ', 1000, 900),
-      new Stock('Another amazing stock ', 'AAs', 900, 1000),
-      new Stock('Great stock ', 'AGS', 1200, 600),
+      new Stock('Amazing stock ', 'AMS ', 1000, 900, 'Modal'),
+      new Stock('Another amazing stock ', 'AAs', 900, 1000, 'MDN123'),
+      new Stock('Great stock ', 'AGS', 1200, 600, 'MDN64'),
     ];
   }
 
