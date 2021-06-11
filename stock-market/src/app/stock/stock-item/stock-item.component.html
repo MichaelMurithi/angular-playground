@@ -1,8 +1,6 @@
 <div class="stock-container" *ngFor="let stock of stocks; index as i; trackBy: trackStockByCode">
     <div class="name">
-        <h3>{{stock.name}}</h3>
-        -
-        <h4>{{stock.code}}</h4>
+        <h3>{{stock.name}}-{{stock.code}}</h3>
     </div>
 <ng-content></ng-content>
 <div [class] = "stock.isPositiveChange ? 'positive' : 'negative'">{{stock.price}}</div>
