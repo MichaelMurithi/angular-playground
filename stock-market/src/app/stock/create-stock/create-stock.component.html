@@ -1,15 +1,18 @@
 <h2>Create stock form</h2>
 <div class="form-group">
     <form (ngSubmit) = "createStock()">
+        <p>Changes from green to red when it is invalid</p>
         <div class="stock-name">
            Stock Name: <input 
             type="text"
             placeholder="Stock Name"
+            required
             [value] = "stock.name"
             name="stockName"
           [(ngModel)]="stock.name"
             >
         </div>
+        <p>Changes from green to red when it has been modified</p>
         <div class="stock-code">
            Stock Code: <input 
             type="text"
@@ -19,7 +22,8 @@
           [(ngModel)]="stock.code"
             >
         </div>
-        <div class="stock-code">
+        <p>Changes from green to red when it is visited by the user, regardless of change</p>
+        <div class="stock-price">
            Stock Price: <input 
             type="number"
             placeholder="Stock Price"
@@ -27,7 +31,7 @@
           [(ngModel)]="stock.price"
             > 
         </div>
-        <div>
+        <div class="stock-exchange">
             Stock Exchange:
             <select name="stockExchange" [ngModel] = "stock.exchange">
                 <option *ngFor="let exchange of exchanges" [ngValue] ="exchange">{{exchange}}</option>
@@ -41,3 +45,4 @@
     <button [disabled] = "!confirmed" type="submit"> Create</button>
 </div>
 <h4>Stock Name is {{stock | json}}</h4>
+<h4>Data has been confirmed: {{confirmed}}</h4>
