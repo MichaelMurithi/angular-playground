@@ -1,7 +1,6 @@
 <h2>Create stock form</h2>
 <div class="form-group">
-    <form (ngSubmit) = "createStock()">
-        <p>Changes from green to red when it is invalid</p>
+    <form (ngSubmit) = "createStock(stockForm)" #stockForm="ngForm">
         <div class="stock-name">
            Stock Name: <input 
             type="text"
@@ -9,20 +8,21 @@
             required
             [value] = "stock.name"
             name="stockName"
+            #stockName="ngModel"
           [(ngModel)]="stock.name"
             >
         </div>
-        <p>Changes from green to red when it has been modified</p>
         <div class="stock-code">
            Stock Code: <input 
             type="text"
             placeholder="Stock Code"
-            [value] = "stock.code"
+            required
+            minLength="2"
             name="stockCode"
+            #stockCode="ngModel"
           [(ngModel)]="stock.code"
             >
         </div>
-        <p>Changes from green to red when it is visited by the user, regardless of change</p>
         <div class="stock-price">
            Stock Price: <input 
             type="number"

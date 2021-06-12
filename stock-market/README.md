@@ -150,7 +150,7 @@ The methods are called in the following order:
 
 The various interfaces must be implemented alongside with the lifecycle hooks
 
-### ViewChildren
+### **ViewChildren**
 
 It is any child component whose tags/selectors appear within the template of the component
 
@@ -220,7 +220,7 @@ Identifies:
 ### Form validity states:
 
 | Control state | CSS class if True | CSS class if False |
-| ------------- | ----------------- | ------------------ |
-| Visited       | ng-touched        | ng-untouched       |
-| Changed       | mg-dirty          | ng-pristine        |
-| Valid         | ng-valid          | ng-invalid         |
+| :------------ | :---------------: | -----------------: |
+| Visited       |    ng-touched     |       ng-untouched |
+| Changed       |     ng-dirty      |        ng-pristine |
+| Valid         |     ng-valid      |         ng-invalid |
