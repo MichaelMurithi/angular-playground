@@ -8,6 +8,7 @@ import { Stock } from '../../model/stock';
 export class CreateStockComponent implements OnInit {
   public stock!: Stock;
   public confirmed: boolean = false;
+  public exchanges = ['NYSE', 'NASDAQ', 'OTHER'];
 
   public title: string = 'Create Stock Form';
 

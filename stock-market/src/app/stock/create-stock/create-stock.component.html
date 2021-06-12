@@ -27,33 +27,12 @@
           [(ngModel)]="stock.price"
             > 
         </div>
-        <div class="stock-exchange">
+        <div>
             Stock Exchange:
-            <div>
-                <input 
-                type="radio"
-                name="stockExchange"
-              [(ngModel)]="stock.exchange"
-              value="NYSE"
-                > NYSE
-            </div>
-        <div>
-            <input 
-            type="radio"
-            value = "NASDAQ"
-            name="stockExchange"
-          [(ngModel)]="stock.exchange"
-            > NASDAQ
+            <select name="stockExchange" [ngModel] = "stock.exchange">
+                <option *ngFor="let exchange of exchanges" [ngValue] ="exchange">{{exchange}}</option>
+            </select>
         </div>
-        <div>
-            <input 
-            type="radio"
-            value = "OTHER"
-            name="stockExchange"
-          [(ngModel)]="stock.exchange"
-            > Other
-        </div>
-    </div>
     <div class="stock-confirm">
         <input type="checkbox" name="stockConfirm" [(ngModel)]= "confirmed">
         I confirm that the information provided above is accurate
