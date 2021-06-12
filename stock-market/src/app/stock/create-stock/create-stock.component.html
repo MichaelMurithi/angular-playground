@@ -1,8 +1,8 @@
 <h2>Create stock form</h2>
-<div>
-    <form>
+<div class="form-group">
+    <form (ngSubmit) = "createStock()">
         <div class="stock-name">
-            <input 
+           Stock Name: <input 
             type="text"
             placeholder="Stock Name"
             [value] = "stock.name"
@@ -10,7 +10,55 @@
           [(ngModel)]="stock.name"
             >
         </div>
+        <div class="stock-code">
+           Stock Code: <input 
+            type="text"
+            placeholder="Stock Code"
+            [value] = "stock.code"
+            name="stockCode"
+          [(ngModel)]="stock.code"
+            >
+        </div>
+        <div class="stock-code">
+           Stock Price: <input 
+            type="number"
+            placeholder="Stock Price"
+            name="stockPrice"
+          [(ngModel)]="stock.price"
+            > 
+        </div>
+        <div class="stock-exchange">
+            Stock Exchange:
+            <div>
+                <input 
+                type="radio"
+                name="stockExchange"
+              [(ngModel)]="stock.exchange"
+              value="NYSE"
+                > NYSE
+            </div>
+        <div>
+            <input 
+            type="radio"
+            value = "NASDAQ"
+            name="stockExchange"
+          [(ngModel)]="stock.exchange"
+            > NASDAQ
+        </div>
+        <div>
+            <input 
+            type="radio"
+            value = "OTHER"
+            name="stockExchange"
+          [(ngModel)]="stock.exchange"
+            > Other
+        </div>
+    </div>
+    <div class="stock-confirm">
+        <input type="checkbox" name="stockConfirm" [(ngModel)]= "confirmed">
+        I confirm that the information provided above is accurate
+    </div>
     </form>
-    <button (click) = "stock.name='test'"> Reset stock name</button>
+    <button [disabled] = "!confirmed" type="submit"> Create</button>
 </div>
-<h4>Stock Name is {{stock.name}}</h4>
+<h4>Stock Name is {{stock | json}}</h4>
