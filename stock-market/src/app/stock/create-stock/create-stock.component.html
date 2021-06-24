@@ -1,48 +1,14 @@
 <h2>Create stock form</h2>
 <div class="form-group">
-    <form (ngSubmit) = "createStock(stockForm)" #stockForm="ngForm">
-        <div class="stock-name">
-           Stock Name: <input 
+    <div class="stock-name">
+        <input
             type="text"
             placeholder="Stock Name"
-            required
-            [value] = "stock.name"
             name="stockName"
-            #stockName="ngModel"
-          [(ngModel)]="stock.name"
-            >
-        </div>
-        <div class="stock-code">
-           Stock Code: <input 
-            type="text"
-            placeholder="Stock Code"
-            required
-            minLength="2"
-            name="stockCode"
-            #stockCode="ngModel"
-          [(ngModel)]="stock.code"
-            >
-        </div>
-        <div class="stock-price">
-           Stock Price: <input 
-            type="number"
-            placeholder="Stock Price"
-            name="stockPrice"
-          [(ngModel)]="stock.price"
-            > 
-        </div>
-        <div class="stock-exchange">
-            Stock Exchange:
-            <select name="stockExchange" [ngModel] = "stock.exchange">
-                <option *ngFor="let exchange of exchanges" [ngValue] ="exchange">{{exchange}}</option>
-            </select>
-        </div>
-    <div class="stock-confirm">
-        <input type="checkbox" name="stockConfirm" [(ngModel)]= "confirmed">
-        I confirm that the information provided above is accurate
+            [formControl]="nameControl"
+        >
     </div>
-    </form>
-    <button [disabled] = "!confirmed" type="submit"> Create</button>
+    <button (click)="onSubmit()">Submit</button>
 </div>
-<h4>Stock Name is {{stock | json}}</h4>
-<h4>Data has been confirmed: {{confirmed}}</h4>
+<p>Form Control value: {{nameControl.value | json}}</p>
+<p>Form Control status: {{nameControl.status | json}}</p>

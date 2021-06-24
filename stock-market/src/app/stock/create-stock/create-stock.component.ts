@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Stock } from '../../model/stock';
+import { FormControl } from '@angular/forms';
+
 @Component({
   selector: 'app-create-stock',
   templateUrl: './create-stock.component.html',
   styleUrls: ['./create-stock.component.css'],
 })
-export class CreateStockComponent implements OnInit {
+export class CreateStockComponent {
   public stock!: Stock;
-  public confirmed: boolean = false;
-  public exchanges = ['NYSE', 'NASDAQ', 'OTHER'];
 
   public title: string = 'Create Stock Form';
 
@@ -16,22 +16,9 @@ export class CreateStockComponent implements OnInit {
     this.stock = new Stock('test', '', 0, 0, 'NASDAQ');
   }
 
-  ngOnInit(): void {}
+  public nameControl = new FormControl();
 
-  getValue(event: Event) {
-    return (event.target as HTMLInputElement).value;
-  }
-
-  setStockPrice(price: number) {
-    this.stock.price = price;
-    this.stock.previousPrice = price;
-  }
-  createStock(stockForm: any) {
-    console.log('Creating stock ', this.stock);
-    if (stockForm.valid) {
-      console.log('Creating stock', this.stock);
-    } else {
-      console.log('Stock form is not valid yet');
-    }
+  onSubmit() {
+    console.log('Name control value', this.nameControl.value);
   }
 }

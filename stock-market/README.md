@@ -224,3 +224,19 @@ Identifies:
 | Visited       |    ng-touched     |       ng-untouched |
 | Changed       |     ng-dirty      |        ng-pristine |
 | Valid         |     ng-valid      |         ng-invalid |
+
+### Reactive Forms
+
+- It is the concept of writing a program in a way that it fundamentally deals with and acts on asynchronous data streams
+
+  - The entire tree of Angular form control objects is defined in the component code and then bind to native form control objects in the template.
+  - The component can push data model changes into the form control because it has access to the form control as well as the backing data:
+
+#### **Form** **Controls**
+
+- It directly represents an individual form element in the template.
+- Used to asign initial values and validators
+
+**Steps**:
+
+1. Import _ReactiveFormsModule_ into the main app.module.ts
