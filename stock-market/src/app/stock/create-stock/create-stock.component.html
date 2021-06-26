@@ -1,14 +1,32 @@
 <h2>Create stock form</h2>
 <div class="form-group">
-    <div class="stock-name">
-        <input
-            type="text"
-            placeholder="Stock Name"
-            name="stockName"
-            [formControl]="nameControl"
-        >
-    </div>
-    <button (click)="onSubmit()">Submit</button>
+    <form [formGroup]="stockForm" (mgSubmit)="onSubmit()">
+        <div class="stock-name">
+            <input
+                type="text"
+                placeholder="Stock Name"
+                name="stockName"
+                formControlName="nameControl"
+            >
+        </div>
+        <div class="stock-code">
+            <input
+                type="text"
+                placeholder="Stock Name"
+                name="code"
+                formControlName="code"
+            >
+        </div>
+        <div class="stock-name">
+            <input
+                type="text"
+                placeholder="Stock Name"
+                name="stockName"
+                formControlName="nameControl"
+            >
+        </div>
+        <button (click)="onSubmit()">Submit</button>
+    </form>
 </div>
 <p>Form Control value: {{nameControl.value | json}}</p>
 <p>Form Control status: {{nameControl.status | json}}</p>

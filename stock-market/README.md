@@ -240,3 +240,9 @@ Identifies:
 **Steps**:
 
 1. Import _ReactiveFormsModule_ into the main app.module.ts
+2. Create a **FormControl** instance in the component
+3. Bind the FormControl instance to the input element
+
+#### **Form Groups**
+
+- They are usefull as a way to group relevant form fields under one group
