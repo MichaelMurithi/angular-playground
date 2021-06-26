@@ -25,6 +25,6 @@ export class CreateStockComponent {
   public nameControl = new FormControl();
 
   onSubmit() {
-    console.log('Name control value', this.stockForm.value);
+    console.log('Name control value', this.nameControl.value);
   }
 }

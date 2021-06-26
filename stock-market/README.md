@@ -236,6 +236,8 @@ Identifies:
 
 - It directly represents an individual form element in the template.
 - Used to asign initial values and validators
+- The first argument of the FormControl validator is the default value.
+- The second argument is an single validator or a array of validators.
 
 **Steps**:
 

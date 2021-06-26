@@ -6,27 +6,27 @@
                 type="text"
                 placeholder="Stock Name"
                 name="stockName"
-                formControlName="nameControl"
+                formControlName="name"
             >
         </div>
         <div class="stock-code">
             <input
                 type="text"
-                placeholder="Stock Name"
+                placeholder="Stock Code"
                 name="code"
                 formControlName="code"
             >
         </div>
-        <div class="stock-name">
+        <div class="stock-price">
             <input
                 type="text"
-                placeholder="Stock Name"
-                name="stockName"
-                formControlName="nameControl"
+                placeholder="Stock Price"
+                name="stockPrice"
+                formControlName="price"
             >
         </div>
         <button (click)="onSubmit()">Submit</button>
     </form>
 </div>
-<p>Form Control value: {{nameControl.value | json}}</p>
-<p>Form Control status: {{nameControl.status | json}}</p>
+<p>Form Control value: {{stockForm.value | json}}</p>
+<p>Form Control status: {{stockForm.status | json}}</p>
