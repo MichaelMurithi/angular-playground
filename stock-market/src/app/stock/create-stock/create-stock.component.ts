@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Stock } from '../../model/stock';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-create-stock',
@@ -12,19 +12,31 @@ export class CreateStockComponent {
 
   public title: string = 'Create Stock Form';
 
-  public stockForm: FormGroup = new FormGroup({
-    name: new FormControl(null, Validators.required),
-    code: new FormControl(null, [Validators.required, Validators.minLength(2)]),
-    price: new FormControl(0, [Validators.required, Validators.min(0)]),
-  });
+  public stockForm!: FormGroup;
+  get name() {
+    return this.stockForm.get('name');
+  }
+  get price() {
+    return this.stockForm.get('price');
+  }
+  get code() {
+    return this.stockForm.get('code');
+  }
 
-  constructor() {
+  constructor(private fb: FormBuilder) {
     this.stock = new Stock('test', '', 0, 0, 'NASDAQ');
   }
 
-  public nameControl = new FormControl();
+  //Using FormBuilder instead of FormGroup and separate form controls
+  createForm() {
+    this.stockForm = this.fb.group({
+      name: [null, Validators.required],
+      code: [null, [Validators.required, Validators.minLength(2)]],
 
+      price: [0, [Validators.required, Validators.min(2.0)]],
+    });
+  }
   onSubmit() {
-    console.log('Name control value', this.nameControl.value);
+    console.log('Stock Form Value', this.stockForm.value);
   }
 }

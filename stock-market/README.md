@@ -248,3 +248,8 @@ Identifies:
 #### **Form Groups**
 
 - They are usefull as a way to group relevant form fields under one group
+
+#### Fields Validation
+
+- For each form element, we add a div to show conditional error messages
+- `.get()` on a form group used to get an individual form element
