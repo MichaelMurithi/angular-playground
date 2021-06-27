@@ -23,9 +23,9 @@ export class CreateStockComponent {
     return this.stockForm.get('code');
   }
 
+  //Using Form Builder to create a form when the component is initialised
   constructor(private fb: FormBuilder) {
     this.createForm();
-    this.stock = new Stock('test', '', 0, 0);
   }
 
   //Using FormBuilder instead of FormGroup and separate form controls
@@ -38,16 +38,26 @@ export class CreateStockComponent {
     });
   }
 
+  //Simulates stock loading from server
   loadStockFromServer() {
     this.stock = new Stock('Served Stock ', 'TST', 20, 10);
     let stockFormModel = Object.assign({}, this.stock);
+    delete stockFormModel.previousPrice;
+    delete stockFormModel.isFavorite;
+    this.stockForm.setValue(stockFormModel);
   }
-
-  patchStockForm() {}
-
-  resetForm() {}
-
+  //Creates a patch of the stockForm
+  patchStockForm() {
+    this.stock = new Stock('Cool Stock', 'CST', 100, 200);
+    this.stockForm.patchValue(this.stock);
+  }
+  //Resets the form
+  resetForm() {
+    this.stockForm.reset();
+  }
+  //Assigns the current value of stockForm to the value in stockForm
   onSubmit() {
-    console.log('Stock Form Value', this.stockForm.value);
+    this.stock = Object.assign({}, this.stockForm.value);
+    console.info(this.stock);
   }
 }
