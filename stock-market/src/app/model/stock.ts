@@ -1,12 +1,16 @@
+import { Person } from './person';
 export class Stock {
   isFavorite?: boolean = false;
+  notablePeople?: Person[];
 
   constructor(
     public name: string,
     public code: string,
     public price: number,
     public previousPrice?: number
-  ) {}
+  ) {
+    this.notablePeople = [];
+  }
 
   isPositiveChange(): boolean {
     if (this.previousPrice) return this.price >= this.previousPrice;

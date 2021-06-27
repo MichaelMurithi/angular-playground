@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Stock } from '../../model/stock';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-create-stock',
@@ -33,11 +33,27 @@ export class CreateStockComponent {
     this.stockForm = this.fb.group({
       name: [null, Validators.required],
       code: [null, [Validators.required, Validators.minLength(2)]],
-
       price: [0, [Validators.required, Validators.min(2.0)]],
+      notablePeople: this.fb.array([]),
     });
   }
 
+  get notablePeople(): FormArray {
+    return this.stockForm.get('notablePeople') as FormArray;
+  }
+
+  addNotablePerson() {
+    this.notablePeople.push(
+      this.fb.group({
+        name: ['', Validators.required],
+        title: ['', Validators.required],
+      })
+    );
+  }
+
+  removeNotablePerson(index: number) {
+    this.notablePeople.removeAt(index);
+  }
   //Simulates stock loading from server
   loadStockFromServer() {
     this.stock = new Stock('Served Stock ', 'TST', 20, 10);
