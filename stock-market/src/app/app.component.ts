@@ -13,9 +13,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.stocksList = [
-      new Stock('Amazing stock', 'AMS', 1000, 900, 'AMS'),
-      new Stock('Another amazing stock', 'AAs', 600, 300, 'AMD3'),
-      new Stock('Great stock', 'AGS', 1200, 600, 'AGS600'),
+      new Stock('Amazing stock', 'AMS', 1000, 900),
+      new Stock('Another amazing stock', 'AAs', 600, 300),
+      new Stock('Great stock', 'AGS', 1200, 600),
     ];
     console.log('App Component - On init');
   }

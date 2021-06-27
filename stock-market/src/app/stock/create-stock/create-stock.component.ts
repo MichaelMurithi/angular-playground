@@ -24,7 +24,8 @@ export class CreateStockComponent {
   }
 
   constructor(private fb: FormBuilder) {
-    this.stock = new Stock('test', '', 0, 0, 'NASDAQ');
+    this.createForm();
+    this.stock = new Stock('test', '', 0, 0);
   }
 
   //Using FormBuilder instead of FormGroup and separate form controls
@@ -36,6 +37,16 @@ export class CreateStockComponent {
       price: [0, [Validators.required, Validators.min(2.0)]],
     });
   }
+
+  loadStockFromServer() {
+    this.stock = new Stock('Served Stock ', 'TST', 20, 10);
+    let stockFormModel = Object.assign({}, this.stock);
+  }
+
+  patchStockForm() {}
+
+  resetForm() {}
+
   onSubmit() {
     console.log('Stock Form Value', this.stockForm.value);
   }
