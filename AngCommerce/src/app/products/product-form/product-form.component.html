@@ -1,0 +1,28 @@
+<h2>Add Product</h2>
+<div class="form-group">
+    <form  (ngSubmit)="onSubmit()" [formGroup]="productForm">
+        <div class="product-name">
+            <input type="text" placeholder="Product Name" name="productName" formControlName="productName">
+            <div *ngIf="productName?.invalid && (
+                productName?.dirty || productName?.touched
+            )">
+            Product name is Required
+            </div>
+        </div>
+        <div class="product-price">
+            <input type="text" placeholder="Product Price" name="price" formControlName="price">
+            <div *ngIf="price?.invalid && (
+                price?.dirty || price?.touched
+            )">
+            Product price is Required
+            </div>
+        </div>
+        <div class="product-image">
+            <input type="image" placeholder="Product Image" name="image" formControlName="image">
+        </div>
+        <div class="sale-toggle">
+            <input type="radio" placeholder="Product Image" name="isOnSaleToggle" formControlName="isOnSale" value="true">
+            <label for="isOnSale">IsOnSale</label>
+        </div>
+    </form>
+</div>
