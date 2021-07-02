@@ -1,0 +1,4 @@
+APP ID: 1900312d06957f34
+Region: eu
+Version: v2.0
+Auth key: e8ca2498ac8114437b9781e7cbc1ccf9a48b4602 
