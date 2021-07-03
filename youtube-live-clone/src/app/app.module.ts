@@ -21,6 +21,7 @@ import { SearchComponent } from './components/search/search.component';
 import { environment } from 'src/environments/environment';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { HeaderComponent } from './components/header/header.component';
+import { VideoComponent } from './components/video/video.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { HeaderComponent } from './components/header/header.component';
     SearchComponent,
     SearchBarComponent,
     HeaderComponent,
+    VideoComponent,
   ],
   imports: [
     BrowserModule,

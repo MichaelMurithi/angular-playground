@@ -8,14 +8,19 @@
             alt="Youtube-logo"
         >
     </div>
-    <form></form>
+    <form>
+        <input type="text" placeholder="Search">
+    </form>
     <div class="header_right">
-        <mat-icon></mat-icon>
-        <mat-icon></mat-icon>
-        <mat-icon></mat-icon>
-        <mat-icon></mat-icon>
-        <div>
-            <img src="">
-        </div>
+        <mat-icon class="header__icon">open_in_new</mat-icon>
+        <mat-icon class="header__icon">video_call</mat-icon>
+        <mat-icon class="header__icon">apps</mat-icon>
+        <mat-icon class="header__icon">notifications</mat-icon>
+        <img
+            [routerLink]="['/profile']"
+            src="user?.photoURL"
+            class="mat-card-avatar"
+            title="Your Profile"
+        >
     </div>
 </div>
