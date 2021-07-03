@@ -19,6 +19,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SearchComponent } from './components/search/search.component';
 import { environment } from 'src/environments/environment';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { environment } from 'src/environments/environment';
     RegisterComponent,
     ProfileComponent,
     SearchComponent,
+    SearchBarComponent,
   ],
   imports: [
     BrowserModule,
