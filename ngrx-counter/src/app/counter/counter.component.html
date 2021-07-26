@@ -1,5 +1,6 @@
 <p>
-    <button>Decreament Count</button>
-    Current count Value: {{countValue}}
-    <button>Increament Count</button>
+    <button (click) ="decreament()">Decreament Count</button>
+    Current count Value: {{countValue | async}}
+    <button (click) ="increament()">Increament Count</button>
 </p>
+<button (click) = "reset()"> Reset</button>
