@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "learning01-bfa99": {
+      "hosting": {
+        "youtube-live-clone": [
+          "learning01-bfa99"
+        ]
+      }
+    }
+  }
+}
