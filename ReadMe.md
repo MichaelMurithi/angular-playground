@@ -21,8 +21,7 @@ This repo contains projects I build while learning various concepts in angular.
 
 - `AngCommerce` - An ecommerce app to practice the concepts learnt while creating `stock-market` app.
   _An implementation of exercise files described in the projects ReadMe_
-
-## **Getting Started**
+tu#4233243434454335]effee **Getting Started**
 
 ### **Development server**
 
