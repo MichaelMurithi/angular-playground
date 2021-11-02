@@ -4,7 +4,7 @@ import { UserManager, User, WebStorageStateStore, Log } from 'oidc-client';
 import { Constants } from '../constants';
 import { Utils } from './utils';
 import { AuthContext } from '../model/auth-context';
-import {Subject} from 'rxjs'
+import { Subject } from 'rxjs'
 
 @Injectable()
 export class AuthService {
@@ -18,7 +18,7 @@ export class AuthService {
   - Any user profile info exposed by the IDP as claims
   - Being able to tell when the tokens for the user are expired.
    */
-  private _user: User; 
+  private _user: User;
   private _loginChangedSubject = new Subject<boolean>();
 
   loginChanged = this._loginChangedSubject.asObservable();
@@ -44,9 +44,9 @@ export class AuthService {
       response_type: 'code',
       // post_logout_redirect_uri: `${Constants.clientRoot}signout-callback`,
       //metadata required for auth0 client to work. with all functionality
-      metadata:{
+      metadata: {
         issuer: `${Constants.stsAuthority}`,
-        authorization_endpoint: `${Constants.stsAuthority}authorize`,
+        authorization_endpoint: `${Constants.stsAuthority}authorize?audience=projects-api`,
         jwks_uri: `${Constants.stsAuthority}.well-known/jwks.json`,
         token_endpoint: `${Constants.stsAuthority}oauth/token`,
         userinfo_endpoint: `${Constants.stsAuthority}userinfo`,
@@ -56,22 +56,22 @@ export class AuthService {
     this._userManager = new UserManager(stsSettings);
   }
 
-  login(){
+  login() {
     return this._userManager.signinRedirect();
   }
   //Keeps track of whether the user is logged In;
-  isLoggedIn(): Promise<boolean>{
-    return this._userManager.getUser().then(user =>{
+  isLoggedIn(): Promise<boolean> {
+    return this._userManager.getUser().then(user => {
       const userCurrent = !!user && !user.expired;
-      if(this._user !== user){
-         this._loginChangedSubject.next(userCurrent);
+      if (this._user !== user) {
+        this._loginChangedSubject.next(userCurrent);
       }
       this._user = user;
       return userCurrent;
     })
   }
 
-  completeLogin(){
+  completeLogin() {
     return this._userManager.signinRedirectCallback().then(user => {
       this._user = user;
       this._loginChangedSubject.next(!!user && !user.expired);
@@ -79,11 +79,11 @@ export class AuthService {
     });
   }
 
-  logout(){
+  logout() {
     this._userManager.signoutRedirect();
   }
 
-  completeLogout(){
+  completeLogout() {
     return this._userManager.signoutRedirectCallback();
   }
 }
